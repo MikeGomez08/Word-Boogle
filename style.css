@@ -1,26 +1,80 @@
-body {
-    text-align: center;
-    background-color: #f1f1f1;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 5px 2px;
-    cursor: pointer;
-  }
-  
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+.button-container {
+  margin-top: 25%;
+
+}
+
+button {
+  background-color: #ffffff;
+  color: #146D9B;
+  border: none;
+  padding: 20px 60px;
+  text-align: end;
+  text-decoration: none;
+  display: flex;
+  justify-content: right; /* Align text to the end */
+  font-size: 45px;
+  margin: 5px 2px;
+  cursor: pointer;
+  width: 50%;
+  height: 100px;
+  margin: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+
+.div-home {
+  border: 1px solid;
+  background-image: url(./images/LANDING.png);
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+
+.div-mode {
+  border: 1px solid;
+  background-image: url(./images/LANDING.png);
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 100vh; 
+}
+
+.button-container2 {
+  margin-top: 18%;
+
+}
+
+.instruct-mode {
+  border: 1px solid;
+  background-image: url(./images/INSTRUCTION.png);
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 100vh; 
+}
+
+
+.header-title {
+  margin-top: 10%;
+
+}
+.text-title{
+  width: fit-content;
+  padding: 10px 60px;
+  background-color: #44CF73;
+  color: #fff;
+  font-size: 50px;
+  border-radius: 5px;
+}
