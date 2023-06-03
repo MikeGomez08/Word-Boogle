@@ -3,15 +3,14 @@
   padding: 0;
 }
 
-html {
-  overflow: hidden;
-}
 
 .button-container {
   margin-top: 25%;
 
 }
-
+a{
+  text-decoration: none;
+}
 button {
   background-color: #ffffff;
   color: #146D9B;
@@ -62,7 +61,7 @@ button {
   background-size: cover;
   width: 100%;
   background-repeat: no-repeat;
-  height: 100vh; 
+  height: 120vh; 
 }
 
 
@@ -77,4 +76,43 @@ button {
   color: #fff;
   font-size: 50px;
   border-radius: 5px;
+}
+
+.header-title2 {
+ display: flex;
+ justify-content: flex-end;
+ align-items: center;
+}
+
+
+.text-title2{
+  width: fit-content;
+  padding: 10px 60px;
+  background-color: #D63C7C;
+  color: #fff;
+  font-size: 50px;
+  border-radius: 5px;
+}
+
+
+.instructions {
+ margin-top: 20px;
+ padding: 20px;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ width: 90%;
+ border: 1px solid red;
+}
+
+.text-instruct {
+  display: flex;
+  margin: 0  5%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.instruction {
+  font-size: 20px;
+  padding: 15px;
 }
