@@ -13,13 +13,29 @@
 </section>
 <section id="game" style="display: none;">
     <section id="game">
-      <section id="word-info">
-        <div id="word-holder">
-            <h5>Current Word:</h5>
-            <p id="current-word"></p>
-        </div>
+      <div class="div-header">
+        <section id="word-info">
+          <div id="word-holder">
+              <h5>Current Word:</h5>
+              <p id="current-word"></p>
+          </div>
+      </section>
   
-    </section>
+      <section id="table-score">
+        <table id="score-table">
+          <tr>
+              <th>Word</th>
+              <th>Score</th>
+          </tr>
+          <tr>
+              <td>Total:</td>
+              <td id="total-points">0</td>
+          </tr>
+      </table>
+      </section>
+
+      </div>
+
         <section id="dice-grid">
             <div class="dice">
                 <button>1</button>
@@ -53,16 +69,7 @@
           <button id="submit-btn">Submit Word</button>
         </div>
        
-        <table id="score-table">
-            <tr>
-                <th>Word</th>
-                <th>Score</th>
-            </tr>
-            <tr>
-                <td>Total:</td>
-                <td id="total-points">0</td>
-            </tr>
-        </table>
+
     </section>
 
   </section>

@@ -183,11 +183,19 @@
     }
     
     // Function to end the game
-    function endGame() {
-        clearInterval(timer);
-        alert('Game Over');
-    }
-    
+function endGame() {
+    clearInterval(timer);
+    alert('Game Over');
+
+    // Store the word, score, and remaining time in local storage
+    localStorage.setItem('word', currentWord.join(''));
+    localStorage.setItem('score', totalPoints);
+    localStorage.setItem('remainingTime', remainingTime);
+
+    // Redirect to the next page
+    window.location.href = 'next-page.html';
+}
+
     // Event listener for key press to start the game
     document.addEventListener('keydown', startGame);
     

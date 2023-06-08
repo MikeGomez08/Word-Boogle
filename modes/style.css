@@ -9,11 +9,11 @@
     background-image: url(../images/START.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 130vh;
+    height: 100vh;
     width: 100%;
   }
   #game {
-    width: 50%;
+    width: 60%;
     margin: 10% auto;
     background-color:var(--orange);
     border-radius: 20px;
@@ -74,8 +74,6 @@
     display: inline;
   }
   #word-info {
-    border: 1px solid #fff;
-  
     color: #fff;
     font-size: 30px;
     padding: 5%;
@@ -84,19 +82,26 @@
     font-size: 30px;
     color: #ffffff;
   }
+
+  .div-header {
+    display: flex;
+    justify-content: unset;
+    width: 100%;
+    align-items: baseline;
+  }
   
   #game #word-info button {
     float: right;
   }
   
   #game #score-table {
-    width:70%;
+    width:100%;
     outline: var(--table-border);
-    margin-left: 35px;
-    margin-top: 50px;
     border-spacing: 0;
   }
-  
+  #table-score {
+    margin: 10px 0;
+  }
   #game #score-table tr th {
     text-align: left;
   }
@@ -149,9 +154,10 @@
     background-color: #fff;
     color: var(--orange);
     font-size: 20px;
-    padding: 5%;
+    padding: 3%;
     border-radius: 10px;
-    width: 100%;
+    width: 300px;
+    margin-bottom: 10px;
     border: transparent
   }
   .text-title2{
