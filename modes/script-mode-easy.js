@@ -113,11 +113,12 @@ function resetWord() {
     if (myWords.length >= 5) {
         submitBtn.removeEventListener('click', addPoints);
         submitBtn.disabled = true;
+        endGame();
     }
 }
 
 // add points
-function addPoints() {
+function addPoints() { 
     var x = currentWord.length;
     switch (true) {
         case x < 3:

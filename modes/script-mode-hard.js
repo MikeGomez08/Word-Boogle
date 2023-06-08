@@ -110,9 +110,10 @@ function resetWord() {
     }
 
     // Check if the maximum number of words is reached
-    if (myWords.length >= 5) {
+    if (myWords.length >= 10) {
         submitBtn.removeEventListener('click', addPoints);
         submitBtn.disabled = true;
+        endGame();
     }
 }
 
