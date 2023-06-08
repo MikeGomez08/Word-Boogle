@@ -151,6 +151,30 @@ function addPoints() {
     }
 }
 
+// Function to check if viewport width is less than or equal to 1037px
+function isViewportMobile() {
+    return window.innerWidth <= 1037;
+  }
+  
+  // Function to toggle between click and touch events based on viewport width
+  function toggleControlEvents() {
+    var controlEvent = isViewportMobile() ? 'touchstart' : 'click';
+  
+    // Remove previous event listeners
+    submitBtn.removeEventListener('click', addPoints);
+    document.removeEventListener('keydown', startGame);
+  
+    // Add new event listeners
+    submitBtn.addEventListener(controlEvent, addPoints);
+    document.addEventListener(controlEvent, startGame);
+  }
+  
+  // Add event listener for window resize to toggle control events
+  window.addEventListener('resize', toggleControlEvents);
+  
+  // Initial call to toggle control events
+  toggleControlEvents();
+  
 submitBtn.addEventListener('click', addPoints);
 
 // Variable for timer

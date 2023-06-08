@@ -169,6 +169,7 @@ button {
      justify-content: center;
      align-items: center;
      flex-direction: column;
+     margin-top: 35%;
   }
   button {
     font-size: 5vw!important;
@@ -181,5 +182,51 @@ button {
 
   .div-mode {
     background-image: url(/images/mobile/1.png);
+  }
+
+  .instruct-mode {
+    border: 1px solid;
+    background-image: url(./images/mobile/3.png);
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 130vh; 
+    background-attachment: fixed;
+  }
+  .instruction {
+    font-size: 4vw;
+  }
+  .dev-mode {
+    background-image: url(./images/mobile/3.png);
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 130vh; 
+    background-attachment: fixed;
+  }
+  .container-dev {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 6%;
+  }
+  .col-1 {
+    order: 0;
+    font-size: 2vh;
+    line-height: 2;
+    font-weight: 400;
+  }
+  .col-2 {
+    font-size: 2vh;
+    line-height: 2;
+    font-weight: 400;
+  }
+  .col-3 {
+    margin-top: 0;
+    padding: 0;
+    font-size: 2vh;
+    line-height: 2;
+    font-weight: 400;
   }
 }
