@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <title>Word Boogle</title>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +18,15 @@
 <body>
   <div class="div-home">
     <div class="button-container">
-      <button onclick="startGame()">START GAME</button>
-      <button onclick="openInstructions()">INSTRUCTIONS</button>
-      <button onclick="openAbout()">THE DEVELOPERS</button>
+      <button data-aos="fade-up" onclick="startGame()">START GAME</button>
+      <button data-aos="fade-up" data-aos-delay="100"  onclick="openInstructions()">INSTRUCTIONS</button>
+      <button data-aos="fade-up"  data-aos-delay="200" onclick="openAbout()">THE DEVELOPERS</button>
     </div>
   </div>
 
-
+  <script>
+    AOS.init();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

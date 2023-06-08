@@ -3,6 +3,9 @@
 <head>
   <link rel="stylesheet" href="style.css">
   <title>Game Mode - Word Boogle</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </head>
 <body>
   
@@ -10,13 +13,15 @@
     <a href="index.html"> <img src="./images/Component 64.svg" alt=""></a>
    
     <div class="button-container2">
-      <button style="background-color:#44CF73; color: #fff " onclick="startGames('easy')">Easy</button>
-      <button style="background-color:#F18701; color: #fff "onclick="startGames('medium')">Medium</button>
-      <button style="background-color: #E56399; color: #fff " onclick="startGames('hard')">Hard</button>
+      <button  data-aos="fade-up"  style="background-color:#44CF73; color: #fff " onclick="startGames('easy')">Easy</button>
+      <button data-aos="fade-up" data-aos-delay="100" style="background-color:#F18701; color: #fff "onclick="startGames('medium')">Medium</button>
+      <button  data-aos="fade-up" data-aos-delay="200"  style="background-color: #E56399; color: #fff " onclick="startGames('hard')">Hard</button>
     </div>
   </div>
 
-
+  <script>
+    AOS.init();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
