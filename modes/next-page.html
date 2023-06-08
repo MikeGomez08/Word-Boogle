@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-image: url(../images/Level\ Done.png);
+    }
+
+
+    .header-title3 {
+        display: flex;
+        justify-content: flex-end;
+        align-items: end;
+        flex-direction: column;
+    }
+
+    .text-title3 {
+        width: fit-content;
+        padding: 10px 60px;
+        background-color: #E56399;
+        color: #fff;
+        font-size: 50px;
+        border-radius: 10px;
+        margin-bottom: 1%;
+        text-decoration: none;
+    }
+
+    .text-title4 {
+        width: fit-content;
+        padding: 10px 60px;
+        background-color: #730734;
+        color: #fff;
+        font-size: 50px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .score {
+        position: absolute;
+        top: 57%;
+        right: 23%;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 25px;
+        color: #fff;
+        font-weight: 900;
+    }
+
+    .word-div {
+        font-size: 50px;
+        margin: 6%;
+        color: #F18701;
+    }
+    .header-title {
+  margin-top: 10%;
+
+}
+.text-title{
+  width: fit-content;
+  padding: 10px 60px;
+  background-color: #44CF73;
+  color: #fff;
+  font-size: 50px;
+  border-radius: 5px;
+}
+</style>
+
+<body>
+    <a href="../index.html"> <img src="../images/Component 64.svg" alt=""></a>
+    <div class="header-title">
+        <h1 class="text-title">WORDS GUESSED</h1>
+      </div>
+    
+
+    <div class="word-div"> <br></div>
+
+
+    <div class="header-title3">
+        <a class="text-title3" href="../mode.html">Try Again</a>
+        <a class="text-title4" href="../index.html">Exit Game</a>
+    </div>
+</body>
+<script>
+    // Retrieve the word, score, and remaining time from local storage
+    var word = localStorage.getItem('myWords');
+    var score = localStorage.getItem('score');
+    var remainingTime = localStorage.getItem('remainingTime');
+
+    // Use the retrieved values as needed
+    console.log('Word:', word);
+    console.log('Score:', score);
+    console.log('Remaining Time:', remainingTime);
+
+    // Display the word and score in the HTML
+    var wordDiv = document.querySelector('.word-div');
+    var scoreDiv = document.createElement('div');
+
+    wordDiv.innerHTML = word;
+    scoreDiv.innerHTML = score;
+    scoreDiv.classList.add('score');
+
+    // Append the score div to the header
+    var header = document.querySelector('.header-title3');
+    header.appendChild(scoreDiv);
+
+
+</script>
+
+</html>

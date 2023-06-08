@@ -4,44 +4,46 @@
     --blue: #398bd4;
     --light-blue: #acceec;
     --table-border: 3px solid var(--yellow-orange);
-  }
-  body{
+}
+
+body {
     background-image: url(../images/START.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
-  }
-  #game {
+}
+
+#game {
     width: 60%;
     margin: 10% auto;
-    background-color:var(--orange);
+    background-color: var(--orange);
     border-radius: 20px;
-  }
-  
-  #game section {
+}
+
+#game section {
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  
-  #game header img {
+}
+
+
+#game header img {
     max-width: 200px;
-  }
-  
-  #game #dice-grid {
+}
+
+#game #dice-grid {
     border: 5px solid var(--yellow-orange);
     width: 300px;
     height: 275px;
     margin: 0 auto;
     background-color: var(--blue);
-  }
-  
-  #game #dice-grid .dice {
+}
+
+#game #dice-grid .dice {
     text-align: center;
-  }
-  
-  #game #dice-grid .dice button {
+}
+
+#game #dice-grid .dice button {
     height: 46px;
     width: 45px;
     margin: 3px;
@@ -51,106 +53,112 @@
     outline: none;
     border: none;
     font-weight: 800;
-  }
-  
-  #game #dice-grid .dice button:last-child {
+}
+
+#game #dice-grid .dice button:last-child {
     /* margin-right: 0; */
-  }
-  
-  #game #dice-grid .dice .selected {
+}
+
+#game #dice-grid .dice .selected {
     background-color: var(--light-blue);
-  }
-  
-  #game #dice-grid .dice:first-child {
+}
+
+#game #dice-grid .dice:first-child {
     margin-top: 6px;
-  }
-  
-  #game #word-info {
+}
+
+#game #word-info {
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  
-  #game #word-info * {
+}
+
+#game #word-info * {
     display: inline;
-  }
-  #word-info {
+}
+
+#word-info {
     color: #fff;
     font-size: 30px;
     padding: 5%;
-  }
-  #word-info #current-word {
+}
+
+#word-info #current-word {
     font-size: 30px;
     color: #ffffff;
-  }
+}
 
-  .div-header {
+.div-header {
     display: flex;
     justify-content: unset;
     width: 100%;
     align-items: baseline;
-  }
-  
-  #game #word-info button {
+}
+
+#game #word-info button {
     float: right;
-  }
-  
-  #game #score-table {
-    width:100%;
+}
+
+#game #score-table {
+    width: 100%;
     outline: var(--table-border);
     border-spacing: 0;
-  }
-  #table-score {
+}
+
+#table-score {
     margin: 10px 0;
-  }
-  #game #score-table tr th {
+}
+
+#game #score-table tr th {
     text-align: left;
-  }
-  
-  #game #score-table tr th,
-  #game #score-table tr td {
+}
+
+#game #score-table tr th,
+#game #score-table tr td {
     padding: 2px;
     margin: 0;
     border-bottom: var(--table-border);
     background-color: #fff;
-  }
-  
-  #game #score-table tr th:first-child,
-  #game #score-table tr td:first-child {
+}
+
+#game #score-table tr th:first-child,
+#game #score-table tr td:first-child {
     width: 70%;
-  }
-  
-  #game #score-table tr th:last-child,
-  #game #score-table tr td:last-child {
+}
+
+#game #score-table tr th:last-child,
+#game #score-table tr td:last-child {
     width: 30%;
     border-left: var(--table-border);
-  }
-  
-  #game #score-table tr:last-child tr,
-  #game #score-table tr:last-child td {
+}
+
+#game #score-table tr:last-child tr,
+#game #score-table tr:last-child td {
     border-bottom: none;
-  }
-  #start {
+}
+
+#start {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20%;
-  }
-  .text-start {
+}
+
+.text-start {
     border: 3px solid #F57912;
     color: #F57912;
     font-size: 50px;
     padding: 20px;
     font-weight: 600;
     border-radius: 10px;
-  }
-  
-  .header-title2 {
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-  }
-  
-  #submit-btn {
+}
+
+.header-title2 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#submit-btn {
     background-color: #fff;
     color: var(--orange);
     font-size: 20px;
@@ -159,23 +167,44 @@
     width: 300px;
     margin-bottom: 10px;
     border: transparent
-  }
-  .text-title2{
+}
+
+.text-title2 {
     width: fit-content;
     padding: 10px 60px;
     background-color: #44CF73;
     color: #fff;
     font-size: 20px;
     border-radius: 10px;
-  }
-  #timer {
+}
+
+#timer {
     color: #fff;
     font-size: 50px;
     text-align: center;
-  }
-  .sub-div {
+}
+
+.sub-div {
     display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 5%;
-  }
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.timer2 {
+    width: fit-content;
+    padding: 10px 60px;
+    background-color: #F18701;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.timer3 {
+    width: fit-content;
+    padding: 10px 60px;
+    background-color: #E56399;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+}

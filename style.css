@@ -35,10 +35,11 @@ button {
   border: 1px solid;
   background-image: url(./images/LANDING.png);
   background-size: cover;
+  background-position: center;
   width: 100%;
-  background-repeat: no-repeat;
   height: 100vh;
 }
+
 
 
 .div-mode {
@@ -60,8 +61,9 @@ button {
   background-image: url(./images/INSTRUCTION.png);
   background-size: cover;
   width: 100%;
+  background-position: center;
   background-repeat: no-repeat;
-  height: 120vh; 
+  height: 130vh; 
 }
 
 
@@ -150,4 +152,34 @@ button {
   padding: 20px;
   font-size: 20px;
   line-height: 1.5;
+}
+
+
+@media screen and (max-width: 1056px) {
+  .div-home {
+    /* Add styles specific to screens with a maximum width of 768px */
+    background-image: url(/images/mobile/2.png)!important;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .button-container {
+     display: flex;
+     font-size: 20px!important;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+  }
+  button {
+    font-size: 5vw!important;
+    justify-content: center;
+    background-color: #E56399;
+    color: #fff;
+    height: auto;
+    width: 80%;
+  }
+
+  .div-mode {
+    
+  }
 }
