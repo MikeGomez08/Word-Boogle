@@ -102,7 +102,6 @@ button {
  justify-content: center;
  flex-direction: column;
  width: 90%;
- border: 1px solid red;
 }
 
 .text-instruct {
@@ -115,4 +114,40 @@ button {
 .instruction {
   font-size: 20px;
   padding: 15px;
+}
+
+
+.dev-mode {
+  border: 1px solid;
+  background-image: url(./images/DEVS.png);
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 100vh; 
+}
+.container-dev {
+  margin: 2.3%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.col-1 {
+  order: 1;
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.col-2 {
+  order: 2;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.col-3 {
+  order: 3;
+  margin-top: 100px;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1.5;
 }
