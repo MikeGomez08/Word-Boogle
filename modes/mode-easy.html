@@ -2,134 +2,24 @@
 <head>
     <title>Boggle Project</title>
 </head>
-<link rel="stylesheet" type="text/css" href="styles/style.css">
-<style>
-:root {
-  --orange: #F57912;
-  --yellow-orange: #FFCA08;
-  --blue: #398bd4;
-  --light-blue: #acceec;
-  --table-border: 3px solid var(--yellow-orange);
-}
+<link rel="stylesheet" type="text/css" href="style.css">
 
-#game {
-  min-height: 600px;
-  width: 350px;
-  border: 1px solid #ccc;
-  margin: 0 auto;
-  background-color: var(--orange);
-  padding-bottom: 20px;
-}
-
-#game section {
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#game header {
-  width: auto;
-  margin: 10px auto;
-  text-align: center;
-}
-
-#game header img {
-  max-width: 200px;
-}
-
-#game #dice-grid {
-  border: 5px solid var(--yellow-orange);
-  width: 280px;
-  height: 275px;
-  margin: 0 auto;
-  background-color: var(--blue);
-}
-
-#game #dice-grid .dice {
-  text-align: center;
-}
-
-#game #dice-grid .dice button {
-  height: 46px;
-  width: 45px;
-  margin: 3px;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: -2px 2px 2px #000;
-  outline: none;
-  border: none;
-  font-weight: 800;
-}
-
-#game #dice-grid .dice button:last-child {
-  /* margin-right: 0; */
-}
-
-#game #dice-grid .dice .selected {
-  background-color: var(--light-blue);
-}
-
-#game #dice-grid .dice:first-child {
-  margin-top: 6px;
-}
-
-#game #word-info {
-  margin-top: 20px;
-}
-
-#game #word-info * {
-  display: inline;
-}
-
-#game #word-info #current-word {
-}
-
-#game #word-info button {
-  float: right;
-}
-
-#game #score-table {
-  width: 50%;
-  outline: var(--table-border);
-  margin-left: 35px;
-  margin-top: 20px;
-  border-spacing: 0;
-}
-
-#game #score-table tr th {
-  text-align: left;
-}
-
-#game #score-table tr th,
-#game #score-table tr td {
-  padding: 2px;
-  margin: 0;
-  border-bottom: var(--table-border);
-  background-color: #fff;
-}
-
-#game #score-table tr th:first-child,
-#game #score-table tr td:first-child {
-  width: 70%;
-}
-
-#game #score-table tr th:last-child,
-#game #score-table tr td:last-child {
-  width: 30%;
-  border-left: var(--table-border);
-}
-
-#game #score-table tr:last-child tr,
-#game #score-table tr:last-child td {
-  border-bottom: none;
-}
-
-</style>
 <body>
+
+  <a href="../index.html"> <img src="../images/Component 64.svg" alt=""></a>
+
+  <section id="start">
+    <h2 class="text-start">Press any key to start</h2>
+</section>
+<section id="game" style="display: none;">
     <section id="game">
-        <header>
-            <img src="http://qumani.com/qdserve/boggle-logo.png" alt="BOGGLE" />
-        </header>
+      <section id="word-info">
+        <div id="word-holder">
+            <h5>Current Word:</h5>
+            <p id="current-word"></p>
+        </div>
+  
+    </section>
         <section id="dice-grid">
             <div class="dice">
                 <button>1</button>
@@ -159,13 +49,10 @@
                 <button>1</button>
             </div>
         </section>
-        <section id="word-info">
-            <div id="word-holder">
-                <h5>Current Word:</h5>
-                <p id="current-word"></p>
-            </div>
-            <button id="submit-btn">Submit Word</button>
-        </section>
+        <div class="sub-div">
+          <button id="submit-btn">Submit Word</button>
+        </div>
+       
         <table id="score-table">
             <tr>
                 <th>Word</th>
@@ -177,152 +64,12 @@
             </tr>
         </table>
     </section>
-    <script>
-        // list of dice
-var dice = [
-    "aaafrs",
-    "aaeeee",
-    "aafirs",
-    "adennn",
-    "aeeeem",
-    "aeegmu",
-    "aegmnn",
-    "afirsy",
-    "bjkqxz",
-    "ccenst",
-    "ceiilt",
-    "ceilpt",
-    "ceipst",
-    "ddhnot",
-    "dhhlor",
-    "dhlnor",
-    "dhlnor",
-    "eiiitt",
-    "emottt",
-    "ensssu",
-    "fiprsy",
-    "gorrvw",
-    "iprrry",
-    "nootuw",
-    "ooottu"
-];
 
-// variable for total points
-var totalPoints = 0;
-var totalPointHolder = document.querySelector('#total-points');
+  </section>
+  <div class="header-title2">
+    <a class="text-title2"><div id="timer">Time</div></a>
 
-// get the entire dice grid
-var diceGrid = document.querySelector('.dice');
-
-// empty var for current word
-var currentWord = [];
-
-// table reference 
-var table = document.querySelector('#score-table');
-
-// var for the submit button
-var submitBtn = document.querySelector('#submit-btn');
-
-// get HTML buttons for placement
-var allDie = document.querySelectorAll('.dice button');
-
-// get div for current word display
-var showCurrentWord = document.querySelector('#current-word');
-
-// build random dice generator
-(function randomizer(){
-     for( var i=0; i < dice.length; i++){
-          // get each die
-          var currentDie = dice[i].split('');
-          // random die side
-          var diceRoll = Math.floor(Math.random() * 6);
-          // set die innerHTML to current charactor
-          allDie[i].innerHTML = currentDie[diceRoll];
-     };
-}());
-
-// toggle class and add current letter to word
-function selectDie() {
-   // toggle selected class for letters
-   if(!this.classList.contains('selected')){
-       // push letter to array
-       this.setAttribute("class","selected");
-       currentWord.push(this.innerHTML);
-   }else{
-       // function to search for already selected letter and remove it
-       for(var i = currentWord.length; i >= 0; i--) {
-           if(currentWord[i] === this.innerHTML) {
-               // unselect button css
-               //this.removeAttribute("class","selected");
-               // remove item
-               currentWord.splice(i, 1);
-           }
-       }
-   }
-   var wordDisplay = currentWord.join('');
-   showCurrentWord.innerHTML = wordDisplay;      
-}
-
-// apply click event for selection
-for (var i = 0; i < allDie.length; i++) {
-    allDie[i].addEventListener('click', selectDie);
-}
-
-// reset word after submit
-function resetWord() {
-   var row = table.insertRow(1);
-   var cell1 = row.insertCell(0);
-   var cell2 = row.insertCell(1);
-   cell1.innerHTML = currentWord.join('');
-   cell2.innerHTML = points;
-   totalPointHolder.innerHTML = totalPoints;
-
-   currentWord = [];
-   showCurrentWord.innerHTML = '';
-   for(var i = 0; i < allDie.length; i++) {
-       allDie[i].removeAttribute("class", "selected");
-   }
-};
-
-// add points
-function addPoints() {
-     var x = currentWord.length;
-     switch(true){
-          case (x < 3):
-               alert('Your word must be more at least 3 charactors!');
-               break;
-          case (x === 3 || x === 4):
-               points = 1;
-               totalPoints += points;
-               break;
-          case (x === 5):
-               points = 2;
-               totalPoints += points;
-               break;
-          case (x === 6):
-               points = 3;
-               totalPoints += points;
-               break;
-          case (x === 7):
-               points = 5;
-               totalPoints += points;
-               break;
-          case ( x > 7):
-               points = 11;
-               totalPoints += points;
-               break;
-          default:
-               points = 0;
-     }
-     if(currentWord.length > 2){
-          resetWord();
-     }
-};
-
-submitBtn.addEventListener('click', addPoints);
-
-
-    </script>
-<script type="text/javascript" src="scripts/script.js"></script>
+  </div>
+<script type="text/javascript" src="script-mode.js"></script>
 </body>
 </html>
