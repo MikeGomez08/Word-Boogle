@@ -37,6 +37,13 @@ var diceGrid = document.querySelector('.dice');
 // empty var for current word
 var currentWord = [];
 
+// index of latest die clicked
+var currentLetter = -1;
+// indices of valid dice that can folle the current letter
+var nextLetters = [];
+// valid submitted words
+var foundWords = [];
+
 // table reference 
 var table = document.querySelector('#score-table');
 
@@ -64,23 +71,38 @@ var showCurrentWord = document.querySelector('#current-word');
 // toggle class and add current letter to word
 function selectDie() {
     // toggle selected class for letters
-    if (!this.classList.contains('selected')) {
-        // push letter to array
-        this.setAttribute('class', 'selected');
-        currentWord.push(this.innerHTML);
-    } else {
-        // function to search for already selected letter and remove it
-        for (var i = currentWord.length; i >= 0; i--) {
-            if (currentWord[i] === this.innerHTML) {
-                // unselect button css
-                //this.removeAttribute("class","selected");
-                // remove item
-                currentWord.splice(i, 1);
-            }
+
+    // get index of clicked die
+    let place = [...allDie].indexOf(this);
+
+    if (place == currentLetter) {
+        // remove latest letter if clicked again
+        this.classList.remove('selected');
+        currentWord.splice(-1, 1);
+        if (currentWord.length > 0) {
+            let prevDie = [...allDie].findIndex(
+                (die, i) => nextLetters.includes(i) && die.classList.contains('selected') && die.textContent == currentWord[currentWord.length - 1]
+            );
+            updateWord(prevDie);
+        } else {
+            resetWord();
         }
+
+        var wordDisplay = currentWord.join('');
+        showCurrentWord.innerHTML = wordDisplay;
+    } else if (!this.classList.contains('selected') && (nextLetters.includes(place) || currentLetter == -1)) {
+        // push letter to currentWord array
+        this.setAttribute("class", "selected");
+        currentWord.push(this.innerHTML);
+        updateWord(place);
+    } else {
+        // reset currentWord with new starting letter
+        resetWord();
+        this.setAttribute("class", "selected");
+        currentWord.push(this.innerHTML);
+        updateWord(place);
     }
-    var wordDisplay = currentWord.join('');
-    showCurrentWord.innerHTML = wordDisplay;
+
 }
 
 // apply click event for selection
@@ -88,66 +110,85 @@ for (var i = 0; i < allDie.length; i++) {
     allDie[i].addEventListener('click', selectDie);
 }
 
-// Variable for my words
-var myWords = [];
+function updateWord(diePosition) {
+    currentLetter = diePosition;
+    nextLetters = [
+        // up, down, right, left
+        diePosition - 5, diePosition + 5, diePosition + 1, diePosition - 1,
+        // upper-left, upper-right, lower-right, lower-left
+        diePosition - 6, diePosition - 4, diePosition + 4, diePosition + 6
+    ].map(place => place < 0 ? Math.max(0, place) : Math.min(24, place));
+
+    var wordDisplay = currentWord.join('');
+    showCurrentWord.innerHTML = wordDisplay;
+}
 
 // reset word after submit
 function resetWord() {
+    currentWord = [];
+    showCurrentWord.innerHTML = '';
+    for (var i = 0; i < allDie.length; i++) {
+        allDie[i].removeAttribute("class", "selected");
+    }
+    currentLetter = -1;
+    nextLetters.length = 0;
+};
+
+// adds validated word with score
+function addWord(points) {
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = currentWord.join('');
     cell2.innerHTML = points;
     totalPointHolder.innerHTML = totalPoints;
-
-    // Store current word in myWords array
-    myWords.push(currentWord.join(''));
-
-    currentWord = [];
-    showCurrentWord.innerHTML = '';
-    for (var i = 0; i < allDie.length; i++) {
-        allDie[i].removeAttribute('class', 'selected');
-    }
-
-    // Check if the maximum number of words is reached
-    if (myWords.length >= 10) {
-        submitBtn.removeEventListener('click', addPoints);
-        submitBtn.disabled = true;
-        endGame();
-    }
 }
 
 // add points
 function addPoints() {
     var x = currentWord.length;
+    const submittedWord = currentWord.join('');
+    let points = 0;
+
     switch (true) {
-        case x < 3:
-            alert('Your word must be at least 3 characters!');
-            break;
-        case x === 3 || x === 4:
+        case (x < 3):
+            alert('Your word must be more at least 3 charactors!');
+            return;
+        case (x === 3 || x === 4):
             points = 1;
-            totalPoints += points;
             break;
-        case x === 5:
+        case (x === 5):
             points = 2;
-            totalPoints += points;
             break;
-        case x === 6:
+        case (x === 6):
             points = 3;
-            totalPoints += points;
             break;
-        case x === 7:
+        case (x === 7):
             points = 5;
-            totalPoints += points;
             break;
-        case x > 7:
+        case (x > 7):
             points = 11;
-            totalPoints += points;
             break;
         default:
             points = 0;
     }
+    if (foundWords.includes(submittedWord)) {
+        // cannot accept word that's already entered
+        alert("Duplicate word found. Find a different word.");
+    } else if (!isValidWord(submittedWord)) {
+        // link "valid-words.js" file
+        // cannot accept word not a real english word
+        // doesn't work yet
+        alert(`'${submittedWord}' is not a valid english word.`);
+    } else {
+        // add submitted word in tally board
+        foundWords.push(submittedWord);
+        totalPoints += points;
+        addWord(points);
+    }
+
     if (currentWord.length > 2) {
+        // unselect dice in the playing board
         resetWord();
     }
 }
@@ -235,7 +276,7 @@ function endGame() {
     // Store the current word, table words, my words, score, and remaining time in local storage
     localStorage.setItem('currentWord', currentWord.join(''));
     localStorage.setItem('tableWords', JSON.stringify(tableWords));
-    localStorage.setItem('myWords', JSON.stringify(myWords));
+    localStorage.setItem('myWords', JSON.stringify(foundWords));
     localStorage.setItem('score', totalPoints);
     localStorage.setItem('remainingTime', remainingTime);
 
